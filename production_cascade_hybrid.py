@@ -1,7 +1,7 @@
 """
 Production-Grade 3-Stage Cascade Hybrid Recommendation Engine
 
-Implements the university assignment specification: data cleaning pipeline,
+data cleaning pipeline,
 SVD candidate retrieval, TF-IDF content layer, hybrid scoring, MMR re-ranking,
 and evaluation metrics including alpha sensitivity.
 
@@ -60,9 +60,10 @@ class ProductionCascadeHybridEngine:
 
     # Slide 1: Data Loading
     # Load the raw ratings and movies files into pandas DataFrames
-    def load_and_preprocess(self,
-                            ratings_url='https://files.grouplens.org/datasets/movielens/ml-100k/u.data',
-                            movies_url='https://files.grouplens.org/datasets/movielens/ml-100k/u.item'):
+def __init__(self):
+    self.ratings_url = r"ml-100k\u.data"
+    self.movies_url  = r"ml-100k\u.item"
+    self.users_url   = r"ml-100k\u.user"
         # STEP 1 — Load Raw Data
         ratings_cols = ['user_id', 'item_id', 'rating', 'timestamp']
         movies_cols = [
